@@ -1,0 +1,11 @@
+p{
+    color: aliceblue;
+    border: 2px dashed black;
+}
+
+img{
+    border-radius: 50%;
+}
+body{
+    background-color: rgb(236, 158, 40);
+}

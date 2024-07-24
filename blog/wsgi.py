@@ -1,5 +1,6 @@
+import cgi
 from database import conn
-
+from pathlib import Path
 
 
 def get_posts_from_database(post_id=None):
@@ -25,6 +26,17 @@ def get_post_list(posts):
     ]
     return "\n".join(post_list)
 
+def add_new_post(post):
+    cursor= conn.cursor()
+    cursor.execute(
+        """\
+            INSERT INTO post (title, content, author)
+            VALUES(:title, :content, :author)
+        """,
+        post
+    )
+    conn.commit()
+
 def application(environ, start_response):
     body= b"Content Not Found"
     status= "404 Not Found"
@@ -48,8 +60,27 @@ def application(environ, start_response):
             post= get_posts_from_database(post_id=post_id)[0]
         )
         status="200 OK"
+    elif path == "/new" and method== "GET":
+        body = render_template("form_template.html")
+        status = "200 OK"
+    elif path == "/new" and method== "POST":
+        form = cgi.FieldStorage(
+            fp=environ["wsgi.input"],
+            environ=environ,
+            keep_blank_values=1
+        )
+        post ={item.name: item.value for item in form.list}
+        add_new_post(post)
+        body= b"New Post created with success!"
+        status= "201 Created"
+
 
     #Criar o response
     headers= [("content-type", "text/html")]
     start_response(status, headers)
     return[body]
+
+if __name__ == "__main__":
+    from wsgiref.simple_server import make_server
+    server = make_server("0.0.0.0", 8000, application)
+    server.serve_forever()

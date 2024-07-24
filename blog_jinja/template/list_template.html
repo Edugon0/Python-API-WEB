@@ -1,0 +1,12 @@
+{% extends "base_template.html" %}
+
+{% block headline %}
+    Blog Posts:
+{% endblock %}
+
+{% block content %}
+    {%- for post in post_list %}
+            <li><a href="/{{ post.id }}" > {{ post.title }}</a></li>
+    {%- endfor %}
+{% endblock %}
+

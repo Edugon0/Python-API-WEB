@@ -12,7 +12,7 @@ def post_list():
 @app.route("^/api$", template="list.template.html")
 def post_list_api():
     posts = get_posts_from_database()
-    return {"post_list": posts}, "200 OK", application/json
+    return {"post_list": posts}, "200 OK", "application/json"
 
 @app.route(r"^/(?P<id>\d{1,})$", template="post.template.html")
 def post_detail(id):

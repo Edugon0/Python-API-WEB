@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: Flask_blog
+Version: 0.1.0
+Requires-Dist: flask
+Requires-Dist: flask-pymongo
+Requires-Dist: dynaconf

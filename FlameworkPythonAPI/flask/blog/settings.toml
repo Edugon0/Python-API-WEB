@@ -2,5 +2,6 @@
 mongo_uri = "mongodb://localhost:27017/blog"
 title = "Bloguizinho"
 extensions = [
-    "blog.database:configure"
+    "blog.database:configure",
+    "blog.commands:configure",
 ]

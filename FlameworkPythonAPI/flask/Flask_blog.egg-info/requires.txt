@@ -1,3 +1,4 @@
 flask
 flask-pymongo
 dynaconf
+flask-bootstrap

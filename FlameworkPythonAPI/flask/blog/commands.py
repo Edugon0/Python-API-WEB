@@ -56,7 +56,18 @@ def update(slug, content, published):
     click.echo("Post Updated")
 
 
-#Desafio: Criar comando para deletar ou despublicar posts(mudando o true para false no meu published)
+#comando para deletar ou despublicar posts(mudando o true para false no meu published)
+@post.command
+@click.argument("slug")
+@click.option("--published", default=None, type=str)
+def unplished(slug, published):
+    """Unpublished post by slug"""
+    data={}
+    if published is not None:
+        data ["published"] = published.lower() == "false"
+        data["published"] = False
+        update_posts_by_slug(slug, data)
+        click.echo(f"O seu post {slug} foi despublicado com sucesso!!!")
 
 
 def configure(app):

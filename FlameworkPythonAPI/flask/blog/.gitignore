@@ -1,0 +1,10 @@
+# Ignorar arquivos de ambiente
+.env
+
+# Caso o .env esteja em um subdiretório específico
+/flask/blog/.env
+
+# Outros arquivos que podem ser ignorados
+__pycache__/
+*.pyc
+*.pyo

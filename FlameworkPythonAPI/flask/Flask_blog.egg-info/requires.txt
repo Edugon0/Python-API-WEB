@@ -2,3 +2,5 @@ flask
 flask-pymongo
 dynaconf
 flask-bootstrap
+mistune
+flask-simplelogin

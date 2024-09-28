@@ -5,3 +5,5 @@ Requires-Dist: flask
 Requires-Dist: flask-pymongo
 Requires-Dist: dynaconf
 Requires-Dist: flask-bootstrap
+Requires-Dist: mistune
+Requires-Dist: flask-simplelogin

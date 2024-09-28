@@ -2,7 +2,9 @@
 #1. configuração
 #2. aplicação
 #3. request
-
+import os
+from flask import Flask
+from dotenv import load_dotenv
 from flask import Flask
 from blog.config import configure
 
@@ -21,9 +23,13 @@ from blog.config import configure
 #    New-Item -Path ".\FlameworkPythonAPI\flask\blog\templates\$file.html.j2" -ItemType File
 #}
 
+# Carregar as variáveis do arquivo .env
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)
+      # Configurar a SECRET_KEY do .env
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     configure(app)
     return app
 

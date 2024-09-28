@@ -1,4 +1,5 @@
 from __future__ import annotations
+import pymongo
 from blog.database import mongo
 from datetime import datetime
 import re
@@ -6,7 +7,7 @@ from unidecode import unidecode
 
 def get_all_posts(published: bool=True):
     posts = mongo.db.posts.find({"published": published})
-    return posts.sort("date")
+    return posts.sort("date", pymongo.DESCENDING)
 
 
 def get_posts_by_slug(slug: str)-> dict: #Metodo de slug, ajusta a nossa URL deixando bonito e facil entendimento

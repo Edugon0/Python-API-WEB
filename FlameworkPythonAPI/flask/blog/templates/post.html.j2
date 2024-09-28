@@ -4,9 +4,9 @@
 <h1>{{ post.title }}</h1>
 
 <div class="jumbotron">
-<small>{{ post.date }}</small>
+<small>{{ post.date | format_date }}</small>
 <p>
-    {{ post.content }}
+    {{ markdown(post.content) }}
 </p>
 </div>
 </div>

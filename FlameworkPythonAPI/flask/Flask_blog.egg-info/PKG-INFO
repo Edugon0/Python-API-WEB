@@ -7,3 +7,4 @@ Requires-Dist: dynaconf
 Requires-Dist: flask-bootstrap
 Requires-Dist: mistune
 Requires-Dist: flask-simplelogin
+Requires-Dist: flask-admin

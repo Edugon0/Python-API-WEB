@@ -1,4 +1,4 @@
-from flask import(Blueprint, Flask, render_template, abort, request, url_for, redirect, session,)
+from flask import(Blueprint, Flask, render_template, abort, request, url_for, redirect,)
 from blog.posts import(get_all_posts, get_posts_by_slug, new_post)
 from flask_simplelogin import login_required
 #TODO: criar o update posts

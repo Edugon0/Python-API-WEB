@@ -8,4 +8,7 @@ extensions = [
     "blog.views:configure",
     "blog.plugins:configure",
     "blog.auth:configure",
+    "blog.admin:configure",
 ]
+
+FLASK_ADMIN_SWATCH = "United"
